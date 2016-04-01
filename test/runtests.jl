@@ -1,5 +1,4 @@
-using Geant4
-using Base.Test
+# This file is a part of Geant4.jl, licensed under the MIT License (MIT).
 
-# write your own tests here
-@test 1 == 1
+import EasyPkg
+EasyPkg.run_all_tests()
