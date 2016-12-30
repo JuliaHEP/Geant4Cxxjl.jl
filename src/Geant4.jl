@@ -13,9 +13,9 @@ import EasyPkg
 
 function module__prep__()
     const cl_flags = replace((@compat readstring(`geant4-config --cflags --libs`)), "\n", " ")
-    const incdirs = map(s -> replace(s, "\"", "")[3:end], matchall(r"-I([^ ]+)", cl_flags))
-    const libdirs = map(s -> replace(s, "\"", "")[3:end], matchall(r"-L([^ ]+)", cl_flags))
-    const libs = map(s -> replace(s, "\"", "")[3:end], matchall(r"-l([^ ]+)", cl_flags))
+    const incdirs = map(s -> replace(s, "\"", "")[4:end], matchall(r" -I([^ ]+)", cl_flags))
+    const libdirs = map(s -> replace(s, "\"", "")[4:end], matchall(r" -L([^ ]+)", cl_flags))
+    const libs = map(s -> replace(s, "\"", "")[4:end], matchall(r" -l([^ ]+)", cl_flags))
 
     for dir in incdirs
         addHeaderDir(dir, kind=C_System)
