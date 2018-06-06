@@ -1,14 +1,14 @@
 # This file is a part of Geant4.jl, licensed under the MIT License (MIT).
 
-# __precompile__()
+__precompile__(false)
 
 module Geant4
 
 
 using Compat
-using Cxx
+using Compat: axes
 
-import EasyPkg
+using Cxx
 
 
 function module__prep__()
@@ -68,9 +68,7 @@ end
 module__prep__()
 
 
-EasyPkg.include_sources(
-    "util.jl",
-)
+include("util.jl")
 
 
 end # module
